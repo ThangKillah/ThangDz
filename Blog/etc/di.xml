@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="blog_post_listing_data_source" xsi:type="string">Magento\Blog\Model\ResourceModel\Page\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult" 
+                 name="Magento\Blog\Model\ResourceModel\Page\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">cowell_blog_post</argument>
+            <argument name="eventPrefix" xsi:type="string">blog_post_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">page_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">ThangDz\Blog\Model\ResourceModel\Post</argument>
+        </arguments>
+    </virtualType>
+</config>
