@@ -1,6 +1,7 @@
 <?php
 namespace ThangDz\Blog\Setup;
 use Magento\Framework\DB\Ddl\Table;
+use Magento\Framework\DB\Adapter\AdapterInterface;
 
 class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 {
@@ -63,7 +64,15 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                     null,
                     ['nullable' => false, 'default' =>  Table::TIMESTAMP_INIT_UPDATE],
                     'Updated At')
-                ->addIndex($installer->getIdxName('blog_post', ['url_key']), ['url_key'])
+                ->addIndex(
+                    $setup->getIdxName(
+                        $installer->getTable('cowell_blog_post'),
+                        ['title'],
+                        AdapterInterface::INDEX_TYPE_FULLTEXT
+                    ),
+                    ['title'],
+                    ['type' => AdapterInterface::INDEX_TYPE_FULLTEXT]
+                )
                 ->setComment('Blog Post');
             $installer->getConnection()->createTable($table);
             $installer->endSetup();
