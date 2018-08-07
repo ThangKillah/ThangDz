@@ -4,20 +4,20 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="blog_post_listing_data_source"
-                      xsi:type="string">ThangDz\Blog\Model\ResourceModel\Post\Grid\Collection</item>
+                <item name="blog_post_listing_data_source" xsi:type="string">ThangDz\Blog\Model\ResourceModel\Post\Collection</item>
             </argument>
         </arguments>
     </type>
-    <virtualType type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult" 
-                 name="ThangDz\Blog\Model\ResourceModel\Post\Grid\Collection">
+
+    <virtualType name="ThangDz\Blog\Model\ResourceModel\Post\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">cowell_blog_post</argument>
+            <argument name="resourceModel" xsi:type="string">ThangDz\Blog\Model\ResourceModel\Post</argument>
             <argument name="eventPrefix" xsi:type="string">blog_post_grid_collection</argument>
             <argument name="eventObject" xsi:type="string">post_grid_collection</argument>
-            <argument name="resourceModel" xsi:type="string">ThangDz\Blog\Model\ResourceModel\Post</argument>
         </arguments>
     </virtualType>
+
     <virtualType name="BlogGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
         <arguments>
             <argument name="appliers" xsi:type="array">
