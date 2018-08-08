@@ -43,7 +43,7 @@ class Index extends \Magento\Backend\App\Action
         $resultPage->setActiveMenu('ThangDz_Blog::post');
         $resultPage->addBreadcrumb(__('POST'), __('POST'));
         $resultPage->addBreadcrumb(__('Manage POST'), __('Manage POST'));
-        $resultPage->getConfig()->getTitle()->prepend(__('Posts'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Post Manager'));
 
         $dataPersistor = $this->_objectManager->get(\Magento\Framework\App\Request\DataPersistorInterface::class);
         $dataPersistor->clear('blog_post');

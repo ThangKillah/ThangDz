@@ -1,11 +1,13 @@
 <?php
 namespace ThangDz\Blog\Model;
+
 class Post extends \Magento\Framework\Model\AbstractModel
 {
-
     const STATUS_ENABLED = 1;
     const STATUS_DISABLED = 0;
-    protected function construct()
+
+    protected function _construct(
+    )
     {
         $this->_init('ThangDz\Blog\Model\ResourceModel\Post');
     }

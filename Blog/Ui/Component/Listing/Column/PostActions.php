@@ -37,7 +37,7 @@ class PostActions extends Column
                             'href' => $this->urlBuilder->getUrl(
                                 static::URL_PATH_EDIT,
                                 [
-                                    'id' => $item['post_id']
+                                    'post_id' => $item['post_id']
                                 ]
                             ),
                             'label' => __('Edit')
